@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mere Expenses</title>
+    <th>Action</th>
+</head>
+<body>
+    <h1>Mere Expenses</h1>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Note</th>
+        </tr>
+        {% for e in expenses %}
+        <tr>
+            <td>{{ e["date"] }}</td>
+            <td>{{ e["category"] }}</td>
+            <td>₹{{ e["amount"] }}</td>
+            <td>{{ e["note"] }}</td>
+            <td>
+                <a href="/edit/{{ e['id'] }}">Edit</a>|
+                <a href="/delete/{{ e['id'] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Total: ₹{{ total }}</h3>
+
+    <a href="/add">Naya Expense Add Karo</a> |
+    <a href="/">Home</a>
+</body>
+</html>
